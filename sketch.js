@@ -3,6 +3,17 @@
 // Steering Text Paths
 // Video: https://www.youtube.com/watch?v=4hA7G3gup-4
 
+let table;
+
+
+
+
+
+
+
+// To save, un-comment next line then click 'run'
+// saveTable(table, 'new.csv');
+
 var font;
 var vehicles = [];
 
@@ -13,6 +24,10 @@ function preload() {
 function setup() {
   createCanvas(600, 300);
   background(51);
+  table = new p5.Table();
+
+  table.addColumn('x');
+  table.addColumn('y');
   // textFont(font);
   // textSize(192);
   // fill(255);
@@ -24,15 +39,17 @@ function setup() {
   });
 
   for (var i = 0; i < points.length; i++) {
-
     var pt = points[i];
-    console.log('{'+str(pt.x)+','+str(pt.y)+'},')
+    let newRow = table.addRow();
+    newRow.setString('x', str(pt.x));
+    newRow.setString('y', str(pt.y));
     var vehicle = new Vehicle(pt.x, pt.y);
     vehicles.push(vehicle);
     // stroke(255);
     // strokeWeight(8);
     // point(pt.x, pt.y);
   }
+  saveTable(table, 'f.csv')
 }
 
 function draw() {
