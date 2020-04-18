@@ -19,12 +19,14 @@ function setup() {
   // noStroke();
   // text('train', 100, 200);
 
-  var points = font.textToPoints('train', 100, 200, 192, {
-    sampleFactor: 0.25
+  var points = font.textToPoints('f', 0, 0, 200, {
+    sampleFactor: 0.4
   });
 
   for (var i = 0; i < points.length; i++) {
+
     var pt = points[i];
+    console.log('{'+str(pt.x)+','+str(pt.y)+'},')
     var vehicle = new Vehicle(pt.x, pt.y);
     vehicles.push(vehicle);
     // stroke(255);
