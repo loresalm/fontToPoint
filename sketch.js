@@ -58,7 +58,7 @@ function setup() {
   // noStroke();
   // text('train', 100, 200);
 
-  var points_f = font.textToPoints('f', 0, 0, 200, {
+  var points_f = font.textToPoints('F', 0, 0, 200, {
     sampleFactor: 0.4
   });
   var points_i = font.textToPoints('i', 0, 0, 200, {
